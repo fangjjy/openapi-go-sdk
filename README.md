@@ -1,4 +1,4 @@
-# PpenApi JAVA SDK
+# OpenApi JAVA SDK
 ## 环境依赖
 SDK 支持 Go  1.8 及以上版本。
 
