@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"go-openapi-sdk/dto"
 	"go-openapi-sdk/util"
+	"net/url"
 )
 
 //SFBRequest 搜房帮请求
@@ -40,7 +41,7 @@ func (req *SFBRequest) ApplyToken(username, pwd string) (*dto.AtuhDTO, error) {
 		return &authdto, err1
 	}
 	body["userName"] = username
-	body["pwd"] = pwddes
+	body["pwd"] =  url.QueryEscape(pwddes)
 	body["keyid"] = req.KeyUnit.KeyId
 	body["datatype"] = "json"
 	result, err := req.HttpClient.HTTPPost(req.Domain+"/agent/UserLoginAuthenticate/", header, body)
